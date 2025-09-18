@@ -6,6 +6,8 @@ import { PricingSection } from "@/components/pricing/PricingSection";
 import HowItWorks from "@/components/HowItWorks";
 import BusinessFeatures from "@/components/BusinessFeatures";
 import FAQ from "@/components/FAQ";
+import WaitlistSection from "@/components/WaitlistSection";
+import InfoBar from "@/components/InfoBar";
 import Footer from "@/components/Footer";
 import dashboardImage from "@/assets/dashboard.png";
 
@@ -49,12 +51,21 @@ const Index = () => {
             transition={{ delay: 0.5 }}
             className="flex flex-col sm:flex-row gap-4 items-center justify-center"
           >
-            <Button size="lg" className="button-gradient px-8">
-              Start Free
-            </Button>
-            <Button size="lg" variant="link" className="text-foreground hover:text-primary">
-              See Pricing
-            </Button>
+           
+<Button asChild size="lg" className="button-gradient px-8">
+  <a
+    href="https://servana-ai.vercel.app/login"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    Start Free
+  </a>
+</Button>
+
+<Button asChild size="lg" variant="link" className="text-foreground hover:text-primary">
+  <a href="#pricing">See Pricing</a>
+</Button>
+
           </motion.div>
         </div>
 
@@ -73,10 +84,14 @@ const Index = () => {
         <HowItWorks />
       </div>
 
+
+
       {/* Business Features Section */}
       <div id="benefits" className="bg-background">
         <BusinessFeatures />
       </div>
+      <InfoBar />   
+
 
       {/* Pricing Section */}
       <div id="pricing" className="bg-background">
@@ -87,6 +102,8 @@ const Index = () => {
       <div id="faq" className="bg-background">
         <FAQ />
       </div>
+
+          
 
       {/* CTA Section */}
       {/* CTA Section */}
@@ -104,12 +121,27 @@ const Index = () => {
     <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
       Ready to perfect your reputation and grow with confidence?
     </p>
-    <Button size="lg" className="button-gradient px-8">
-      Start Free
-      <ArrowRight className="ml-2 w-4 h-4" />
-    </Button>
+
+
+   <Button asChild size="lg" className="button-gradient px-8">
+  <a
+    href="https://servana-ai.vercel.app/login"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="inline-flex items-center"
+  >
+    Start Free
+    <ArrowRight className="ml-2 w-4 h-4" />
+  </a>
+</Button>
+
+
+
   </motion.div>
 </section>
+
+{/* form wait list */}
+      <WaitlistSection />  
 
       {/* Footer */}
       <Footer />

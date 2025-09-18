@@ -3,6 +3,10 @@ import { Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { CardSpotlight } from "./CardSpotlight";
 
+
+
+const LOGIN_URL = "https://servana-ai.vercel.app/login";
+
 const plans = [
   {
     name: "Starter",
@@ -16,7 +20,8 @@ const plans = [
       "Google push"
     ],
     popular: false,
-    buttonText: "Start Free"
+    buttonText: "Start Free",
+     href: LOGIN_URL,
   },
   {
     name: "Pro",
@@ -30,7 +35,8 @@ const plans = [
       "Custom branding"
     ],
     popular: true,
-    buttonText: "Start Free"
+    buttonText: "Start Free",
+      href: LOGIN_URL,
   },
   {
     name: "Business",
@@ -44,7 +50,8 @@ const plans = [
       "Advanced Analytics"
     ],
     popular: false,
-    buttonText: "Start Free"
+    buttonText: "Start Free",
+     href: LOGIN_URL,
   }
 ];
 
@@ -55,7 +62,8 @@ const PricingTier = ({
   description,
   features,
   popular,
-  buttonText
+  buttonText,
+  href, 
 }: {
   name: string;
   price: string;
@@ -64,6 +72,7 @@ const PricingTier = ({
   features: string[];
   popular?: boolean;
   buttonText: string;
+  href: string;
 }) => (
   <CardSpotlight className={`h-full ${popular ? "border-primary" : "border-border/50"} border-2`}>
     <div className="relative h-full p-8 flex flex-col">
@@ -86,9 +95,12 @@ const PricingTier = ({
           </li>
         ))}
       </ul>
-      <Button className="button-gradient w-full">
-        {buttonText}
-      </Button>
+      <Button asChild className="button-gradient w-full">
+  <a href={href}> {buttonText}
+     </a>
+  
+</Button>
+
     </div>
   </CardSpotlight>
 );
@@ -135,6 +147,9 @@ export const PricingSection = () => {
               features={plan.features}
               popular={plan.popular}
               buttonText={plan.buttonText}
+              href={plan.href}
+              
+              
             />
           ))}
         </motion.div>

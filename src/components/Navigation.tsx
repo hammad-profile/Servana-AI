@@ -63,12 +63,18 @@ const Navigation = () => {
                 {item.name}
               </a>
             ))}
-            <Button 
-              size="sm"
-              className="button-gradient"
-            >
-              Try Free
-            </Button>
+         
+<Button asChild size="lg" className="button-gradient px-8">
+  <a
+    href="https://servana-ai.vercel.app/login"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    Try Free
+  </a>
+</Button>
+
+
           </div>
 
           {/* Mobile Navigation */}
